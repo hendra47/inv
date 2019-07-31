@@ -141,5 +141,6 @@ Route::group(array('prefix' => 'backend','middleware'=> ['token_admin']), functi
 
 	Route::get('/koreksi-stok','Backend\KoreksiController@index');
     Route::post('/koreksi-stok','Backend\KoreksiController@update');
-    Route::get('/koreksi-stok/barang/popup-media/','Backend\KoreksiController@popup_media_barang');
+	Route::get('/koreksi-stok/barang/popup-media/','Backend\KoreksiController@popup_media_barang');
+	Route::get('/koreksi/datatable','Backend\KoreksiController@datatable');
 });

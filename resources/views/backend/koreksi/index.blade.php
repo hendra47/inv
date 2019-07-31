@@ -68,6 +68,28 @@
             </div>
         </div>
     </div>
+	<div class="clearfix"></div>
+
+    <div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="x_panel">
+				<div class="x_content">
+                    <table class="table table-striped table-hover table-bordered dt-responsive nowrap dataTable" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+                                <th>ID</th>
+                                <th>Kode Barang</th>
+                                <th>Keterangan</th>
+                                <th>Jumlah</th>
+                                <th>Type</th>
+								<th>Tanggal</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>					
+	</div>
                             
 @endsection
 
@@ -90,6 +112,21 @@
             'href'              : $(this).attr('href')
         });
 		e.preventDefault();
-	});    
+	});  
+    $('.dataTable').dataTable({
+			processing: true,
+			serverSide: true,
+			ajax: "<?=url('backend/koreksi/datatable');?>",
+			columns: [
+				{data: 'id', name: 'id'},
+				{data: 'id_barang', name: 'ID barang'},
+				{data: 'keterangan', name: 'keterangan'},
+				{data: 'jumlah', name: 'jumlah'},
+				{data: 'type', name: 'type'},
+				{data: 'created_at', name: 'Tanggal'},
+
+			],
+			responsive: true
+		});  
 </script>
 @endsection

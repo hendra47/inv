@@ -10,10 +10,21 @@ use Illuminate\Http\JsonResponse;
 use App\Model\Stok;
 use App\Model\Barang;
 use Illuminate\Support\Facades\Redirect;
+use Datatables;
 
 class KoreksiController extends Controller {
 	public function index(Request $request) {
 		return view ('backend.koreksi.index');
+    }
+    
+    public function datatable() {	
+        $data = Stok::all();
+        // dd($data);
+        return Datatables::of($data)
+            ->editColumn('created_at', function($data) {
+                return $data->created_at;
+            })
+            ->make(true);		
 	}
 	
     public function update(Request $request)
