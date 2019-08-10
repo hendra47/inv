@@ -38,6 +38,7 @@
                                 <th>Kode</th>
                                 <th>Nama</th>
                                 <th>Harga Jual</th>
+                                <th>Stok</th>
                                 <th>Keterangan</th>
 								<th>Status</th>
 								<th>Actions</th>
@@ -67,6 +68,7 @@
                 {data: 'kode', name: 'kode'},
                 {data: 'nama', name: 'nama'},
                 {data: 'harga_jual', name: 'harga_jual'},
+                {data: 'stok_total', name: 'stok_total'},
                 {data: 'keterangan', name: 'keterangan'},
 				{data:  'active', render: function ( data, type, row ) {
 					var text = "";

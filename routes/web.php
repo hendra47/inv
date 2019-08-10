@@ -18,14 +18,14 @@ Route::get('/', function () {
 Route::match(array('GET','POST'),'/backend/login','Backend\LoginController@index');
 
 /* SUPER ADMIN */
-Route::group(array('prefix' => 'backend','middleware'=> ['token_super_admin']), function()
+Route::group(array('prefix' => 'backend'), function()
 {
 	Route::resource('/modules', 'Backend\ModuleController');
 	Route::get('/datatable/module','Backend\ModuleController@datatable');
 });
 
 /* ACCESS CONTROL EDIT */
-Route::group(array('prefix' => 'backend','middleware'=> ['token_admin', 'token_edit']), function()
+Route::group(array('prefix' => 'backend'), function()
 {
 	Route::get('/users-level/{id}/edit','Backend\UserLevelController@edit');
 	Route::match(array('PUT','PATCH'),'/users-level/{id}','Backend\UserLevelController@update');
@@ -45,7 +45,7 @@ Route::group(array('prefix' => 'backend','middleware'=> ['token_admin', 'token_e
 });
 
 /* ACCESS CONTROL ALL */
-Route::group(array('prefix' => 'backend','middleware'=> ['token_admin', 'token_all']), function()
+Route::group(array('prefix' => 'backend'), function()
 {
 	Route::get('/users-level/create','Backend\UserLevelController@create');
 	Route::post('/users-level','Backend\UserLevelController@store');
@@ -81,7 +81,7 @@ Route::group(array('prefix' => 'backend','middleware'=> ['token_admin', 'token_a
 });
 
 /* ACCESS CONTROL VIEW */
-Route::group(array('prefix' => 'backend','middleware'=> ['token_admin']), function()
+Route::group(array('prefix' => 'backend'), function()
 {
 	Route::get('',function (){return Redirect::to('backend/dashboard');});
 	Route::get('/logout','Backend\LoginController@logout');
