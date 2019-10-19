@@ -53,18 +53,18 @@ class LaporanController extends Controller
         $endDateQuery = date("Y-m-d", strtotime($endDate));
         if ($status == '0'){
             if ($mode == "all"){
-                $data = PurchaseH::select('purchase_h.*','supplier.nama')->leftJoin('supplier', 'purchase_h.id_sup', '=', 'supplier.id')->where('purchase_h.active', '!=', 0);
+                $data = PurchaseH::select('purchase.*','supplier.nama')->leftJoin('supplier', 'purchase.id_sup', '=', 'supplier.id')->where('purchase.active', '!=', 0);
             } else 
             if ($mode == "limited"){
-                $data = PurchaseH::select('purchase_h.*','supplier.nama')->leftJoin('supplier', 'purchase_h.id_sup', '=', 'supplier.id')->where('purchase_h.active', '!=', 0)->whereBetween('tanggal', [$startDateQuery, $endDateQuery]);
+                $data = PurchaseH::select('purchase.*','supplier.nama')->leftJoin('supplier', 'purchase.id_sup', '=', 'supplier.id')->where('purchase.active', '!=', 0)->whereBetween('tanggal', [$startDateQuery, $endDateQuery]);
             }
         } else 
         {
             if ($mode == "all"){
-                $data = PurchaseH::select('purchase_h.*','supplier.nama')->leftJoin('supplier', 'purchase_h.id_sup', '=', 'supplier.id')->where('purchase_h.active', '!=', 0)->where('purchase_h.status', '=', $status);
+                $data = PurchaseH::select('purchase.*','supplier.nama')->leftJoin('supplier', 'purchase.id_sup', '=', 'supplier.id')->where('purchase.active', '!=', 0)->where('purchase.status', '=', $status);
             } else 
             if ($mode == "limited"){
-                $data = PurchaseH::select('purchase_h.*','supplier.nama')->leftJoin('supplier', 'purchase_h.id_sup', '=', 'supplier.id')->where('purchase_h.active', '!=', 0)->where('purchase_h.status', '=', $status)->whereBetween('tanggal', [$startDateQuery, $endDateQuery]);
+                $data = PurchaseH::select('purchase.*','supplier.nama')->leftJoin('supplier', 'purchase.id_sup', '=', 'supplier.id')->where('purchase.active', '!=', 0)->where('purchase.status', '=', $status)->whereBetween('tanggal', [$startDateQuery, $endDateQuery]);
             }
         }
         $data = $data->get();
@@ -102,10 +102,10 @@ class LaporanController extends Controller
 		$startDateQuery = date("Y-m-d", strtotime($startDate));
         $endDateQuery = date("Y-m-d", strtotime($endDate));
         if ($mode == "all"){
-            $data = PenjualanH::where('penjualan_h.active', '!=', 0);
+            $data = PenjualanH::where('pemakaian.active', '!=', 0);
         } else 
         if ($mode == "limited"){
-            $data = PenjualanH::where('penjualan_h.active', '!=', 0)->whereBetween('tanggal', [$startDateQuery, $endDateQuery]);
+            $data = PenjualanH::where('pemakaian.active', '!=', 0)->whereBetween('tanggal', [$startDateQuery, $endDateQuery]);
         }
         $data = $data->get();
 

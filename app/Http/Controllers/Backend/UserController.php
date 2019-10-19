@@ -179,8 +179,8 @@ class UserController extends Controller {
 
 	public function datatable() {
 		$userinfo = Session::get('userinfo');
-		$user = User::select('users.*','user_levels.name')
-		 ->join('user_levels','user_levels.id','=','users.user_level_id')
+		$user = User::select('users.*','jabatan.name')
+		 ->join('jabatan','jabatan.id','=','users.user_level_id')
 		 ->where('users.active', '!=', 0);
 	
         return Datatables::of($user)

@@ -5,7 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 class UserLevel extends Model {
-	protected $table = 'user_levels';
+	protected $table = 'jabatan';
 	protected $hidden = ['created_at', 'updated_at'];
 	
 	public function user_modify()

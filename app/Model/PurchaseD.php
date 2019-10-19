@@ -5,7 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 class PurchaseD extends Model {
-	protected $table = 'purchase_d';
+	protected $table = 'purchase_detail';
 	protected $hidden = ['created_at', 'updated_at'];
 	
 	public function purchase()

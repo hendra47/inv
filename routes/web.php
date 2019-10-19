@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return redirect('backend');
 });
 
 Route::match(array('GET','POST'),'/backend/login','Backend\LoginController@index');

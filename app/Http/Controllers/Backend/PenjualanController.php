@@ -147,7 +147,7 @@ class PenjualanController extends Controller
     }
     
 	public function datatable() {
-        $data = PenjualanH::select('penjualan_h.*')->where('penjualan_h.active', '!=', 0);
+        $data = PenjualanH::select('pemakaian.*')->where('pemakaian.active', '!=', 0);
         return Datatables::of($data)
 			->addColumn('action', function ($data) {
 				$userinfo = Session::get('userinfo');

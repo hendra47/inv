@@ -1,3 +1,18 @@
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #print-area, #print-area * {
+    visibility: visible;
+  }
+  #print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
 .breadcrumb{
     background-color: transparent;
 }
@@ -9,6 +24,11 @@
 .alert-dismissable .close, .alert-dismissible .close{
     right : 0px;
 }
+
+.border-bottom{
+  border-bottom:1px solid #242424 ;
+}
+
 
 .badge:hover {
     color: #ffffff;

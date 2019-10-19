@@ -7,7 +7,9 @@
 	if (isset($data)){
 		$breadcrumb[2]['title'] = $data[0]->no_inv;
 		$breadcrumb[2]['url'] = url('backend/purchase-order/'.$data[0]->id.'/edit');
-	}
+    }
+	$userinfo = Session::get('userinfo');
+    
 ?>
 
 <!-- LAYOUT -->
@@ -26,14 +28,25 @@
             <div class="col-md-4 col-sm-4 col-xs-8 form-group pull-right top_search">
                 <a href="<?=url('/backend/purchase-order');?>" class="btn-index btn btn-primary btn-block" title="Back"><i class="fa fa-arrow-left"></i></a>
             </div>
+            <div class="col-md-4 col-sm-4 col-xs-8 form-group pull-right top_search">
+                <a href="javascript:printDiv('print-area');" class="btn-index btn btn-success btn-block" title="Back"><i class="fa fa-print"></i> Print</a>
+            </div>
         </div>
     </div>
 	<div class="clearfix"></div>
 	@include('backend.elements.breadcrumb',array('breadcrumb' => $breadcrumb))	
-	<div class="row">
+	<div class="row" id="print-area">
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_content">
+
+					<div class="row border-bottom">
+                        <div class="col-xs-12">
+                            <h4>PT Excel</h4>
+                            <p>Ruko Granada Square blok I 45 Bsd Tangerang Selatan</p>
+                        </div>
+                    </div>
+
 					<div class="row">
                         <div class="col-xs-12">
                             <h4>Purchase Order</h4>
@@ -79,7 +92,12 @@
                                 endforeach;
                             ?>
                         </tbody>
-					</table>
+                    </table>
+                    <div class="row">
+                        <div class="col-xs-12">
+                                    <p>Print By : <?=$userinfo['firstname'];?></p>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</div>					

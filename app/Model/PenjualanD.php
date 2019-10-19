@@ -5,7 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 class PenjualanD extends Model {
-	protected $table = 'penjualan_d';
+	protected $table = 'pemakaian_detail';
 	protected $hidden = ['created_at', 'updated_at'];
 	
 	public function penjualan()

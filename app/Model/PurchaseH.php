@@ -5,7 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 class PurchaseH extends Model {
-	protected $table = 'purchase_h';
+	protected $table = 'purchase';
 	protected $hidden = ['created_at', 'updated_at'];
 	
 	public function user_modify()

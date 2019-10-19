@@ -2,8 +2,8 @@
 	$breadcrumb = [];
 	$breadcrumb[0]['title'] = 'Dashboard';
 	$breadcrumb[0]['url'] = url('backend/dashboard');
-	$breadcrumb[1]['title'] = 'Koreksi Stok';
-	$breadcrumb[1]['url'] = url('backend/koreksi-stok');
+	$breadcrumb[1]['title'] = 'Koreksi Stock';
+	$breadcrumb[1]['url'] = url('backend/koreksi-stock');
 ?>
 
 <!-- LAYOUT -->
@@ -18,7 +18,7 @@
 @section('content')
 	<div class="page-title">
 		<div class="title_left">
-			<h3>Koreksi Stok</h3>
+			<h3>Koreksi Stock</h3>
 		</div>
 		<div class="title_right">
 			<div class="col-md-4 col-sm-4 col-xs-8 form-group pull-right top_search">
